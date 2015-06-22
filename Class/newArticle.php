@@ -33,27 +33,13 @@
 			$Validate=false;
 			
 			//On ajoute les nouvelles données
-			/*
 			
-			try
-			{
-				$pdo = new PDO('mysql:host=localhost;dbname=mybase', 'root', '');
-			}
-			catch(Exception $e)
-			{
-				echo 'Echec de la connexion à la base de données';
-				exit();
-			}
-			
-			*/
-			// Attention, bien vérifier que la donnée ID est réglée pour être en auto-incrémentation!!!
-			
-			$req=$pdo->prepare('INSERT INTO user (Id, Name, FirstName, Mail, Address, Username, Pass, Validate) VALUES (:Id, :Name, :FirstName, :Mail, :Address, :Username, :Pass, :Validate)');
+			$req=$pdo->prepare('INSERT INTO articles (Id, Titre, Article, Validate) VALUES (:Id, :Titre, :Article, :Validate)');
 				
 			$req->execute(array(
 				"Id" => null,
-				"Name" => $Name,
-				"FirstName" => $FirstName,
+				"Titre" => $Titre,
+				"Article" => $Article,
 				'Validate' => $Validate,
 			));
 		}
