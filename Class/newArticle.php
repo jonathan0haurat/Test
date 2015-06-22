@@ -18,6 +18,43 @@
 		public AddArticle(){
 			$const->_connect->query("Select * FROM `articles`");
 			
-			return $const->_connect->fetchAll();
+			echo "<form method="post">
+				<p>Titre de l'article:</p>
+				<input type="titre" name="Titre" />
+				<br>
+				<p>Article:</p>
+				<input type="article" name="Article" />
+				<br><br>
+				<input type="submit" value="Validate" />
+			</form>"
+			
+			$Titre=$_POST['Titre'];
+			$Article=$_POST['Article'];
+			$Validate=false;
+			
+			//On ajoute les nouvelles données
+			/*
+			
+			try
+			{
+				$pdo = new PDO('mysql:host=localhost;dbname=mybase', 'root', '');
+			}
+			catch(Exception $e)
+			{
+				echo 'Echec de la connexion à la base de données';
+				exit();
+			}
+			
+			*/
+			// Attention, bien vérifier que la donnée ID est réglée pour être en auto-incrémentation!!!
+			
+			$req=$pdo->prepare('INSERT INTO user (Id, Name, FirstName, Mail, Address, Username, Pass, Validate) VALUES (:Id, :Name, :FirstName, :Mail, :Address, :Username, :Pass, :Validate)');
+				
+			$req->execute(array(
+				"Id" => null,
+				"Name" => $Name,
+				"FirstName" => $FirstName,
+				'Validate' => $Validate,
+			));
 		}
 	}

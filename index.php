@@ -1,5 +1,6 @@
 <?php
  include "class/dbConnect.php";
+ include "class/newArticle.php";
  $myCo = new dbConnect();
 ?>
 
