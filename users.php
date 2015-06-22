@@ -22,7 +22,7 @@
 	?>
 		<form action="users.php" method="get">
 
-			<legend>Users</legend>
+			<legend>Add User</legend>
 
 			<label>FirstName<label>
 			<input type="text" name="firstname" value="">
@@ -34,6 +34,19 @@
 			<input type="text" name="username" value="">
 			<br/>
 			<input type="submit" value="Ajouter un utilisateur">
+
+		</form>
+
+		<br/><br/>
+
+		<form action="/Test/php/suppr.php" method="get">
+
+			<legend>Remove User</legend>
+
+			<label>Quelle FirstName ?<label>
+			<input type="text" name="firstname" value="">
+
+			<input type="submit" name="suppression" value="X">
 
 		</form>
 	<?php

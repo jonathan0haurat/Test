@@ -30,4 +30,9 @@
 					echo die('Erreur :'.$e->getMessage());
 				} 
 			}
+
+		function RemoveUsers(){
+			$req = $this->_connect->prepare('DELETE FROM users WHERE firstname = ?');
+			$req->execute(array($_GET['firstname']));
+		}
 	}
