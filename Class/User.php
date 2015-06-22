@@ -1,59 +1,24 @@
 <?php
-	class dbConnect
+	include "class/dbConnect.php";
+	class users
 	{
-		/*
-		 * Connexion PDO.
-		 */
-		private $_connect = null;
-		
-		/*
-		 * Mot de passe de la base SQL.
-		 */
-		private $_pass = "";
-		
-		/*
-		 * Utilisateur de la base SQL.
-		 */
-		private $_user = "root";
-		
-		/*
-		 * Type de base utilisée.
-		 */
-		private $_type = "mysql";
-		
-		/*
-		 * Chemin de la base de données.
-		 */
-		private $_path = "127.0.0.1";
-		
-		/*
-		 * Nom de ma base de données.
-		 */
-		private $_dbName = "base";
-		
-		/*
-		 * Constructeur
-		 */
+		private $_firstname = "test1";
+
+		private $_dbCo = null;
+
 		function __construct()
-		{
-			$this->_connect = new PDO($this->_type . ":host=" . $this->_path.";dbname=".$this->_dbName ,$this->_user, $this->_pass);
+		{		
+			$this->_dbCo = new dbConnect();
 		}
-		
-		/* 
-		 * Get my articles from database 'articles'.
-		 */
-		function GetMyArticles(){
-			$result = $this->_connect->query("Select * FROM `articles`");
 
-			return $result->fetchAll();
-		}
-		
-		/*
-		 * Get my users from database 'users'.
-		 */
-		function GetMyUsers(){
-			$result = $this->_connect->query("Select * FROM `users`");
+		function AddUsers(){
 
-			return $result->fetchAll();
+			// $bdd = new PDO('mysql:host=localhost;dbname=base;charset=utf8', 'root', '');
+
+			$req = $this->_dbCo->prepare('INSERT INTO users(firstname) VALUES (:firstname)');
+
+			$req->execute(array(
+				'firstname' => $this->_firstname
+				));
 		}
 	}

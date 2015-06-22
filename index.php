@@ -12,7 +12,7 @@
         <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 	</head>
 	<body>
-		<p><a href="users.php">Users</a></p>
+		<p><a href="users.php">Gestion d'utilisateur</a></p>
 		<div> Articles </div>
 		<?php
 			/* Ici je veux afficher mes articles*/
