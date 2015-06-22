@@ -1,5 +1,5 @@
 <?php
-	public class dbConnect
+	class dbConnect
 	{
 		/*
 		 * Connexion PDO.
@@ -27,28 +27,33 @@
 		private $_path = "127.0.0.1";
 		
 		/*
+		 * Nom de ma base de données.
+		 */
+		private $_dbName = "base";
+		
+		/*
 		 * Constructeur
 		 */
-		public __construct()
+		function __construct()
 		{
-			$this->_connect = new PDO($this->_type . ":" . $this->_path,$this->_user, this->_pass);
+			$this->_connect = new PDO($this->_type . ":host=" . $this->_path.";dbname=".$this->_dbName ,$this->_user, $this->_pass);
 		}
 		
 		/* 
 		 * Get my articles from database 'articles'.
 		 */
-		public GetMyArticles(){
-			$this->_connect->query("Select * FROM `articles`");
-			
-			return $this->_connect->fetchAll();
+		function GetMyArticles(){
+			$result = $this->_connect->query("Select * FROM `articles`");
+
+			return $result->fetchAll();
 		}
 		
 		/*
 		 * Get my users from database 'users'.
 		 */
-		public GetMyUsers(){
-			$this->_connect->query("Select * FROM `users`");
-			
-			return $this->_connect->fetchAll();
+		function GetMyUsers(){
+			$result = $this->_connect->query("Select * FROM `users`");
+
+			return $result->fetchAll();
 		}
 	}
