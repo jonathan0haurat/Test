@@ -1,22 +1,15 @@
 <?php
-	public class newArticle
+include "class/dbConnect.php";
+	class newArticle
 	{
-		/* On se connecte à la base */
-		private $_connect = null;
-		private $_pass = "";
-		private $_user = "root";
-		private $_type = "mysql";
-		private $_path = "127.0.0.1";
-		
-		/* Ouverture du constructeur */
 		public __construct()
 		{
-			$const->_connect = new PDO($const->_type . ":" . $const->_path,$const->_user, const->_pass);
+			$this->_connect = new PDO($this->_type . ":" . $this->_path,$this->_user, this->_pass);
 		}
 		
 		/* Ajout d'un article */
 		public AddArticle(){
-			$const->_connect->query("Select * FROM `articles`");
+			$this->_connect->query("Select * FROM `articles`");
 			
 			echo "<form method="post">
 				<p>Titre de l'article:</p>

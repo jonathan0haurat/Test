@@ -23,6 +23,8 @@
                 echo "<div class='contentArticle'>" . $article["content"]."</div>";
                 echo "</div>";
             }
+			/* Et ici, le lien pour créer un nouvel article */
+			
 		?>
 		<div> Users </div>
 		
