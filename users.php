@@ -13,10 +13,10 @@
 	</head>
 	<body>
 	<?php
-	if (!empty($_GET['firstname'])) {
-		echo $_GET['firstname'];
+	if (!empty($_GET['firstname']) && !empty($_GET['name']) && !empty($_GET['username'])) {
 		$userAdd = new users;
 		$userAdd->AddUsers();
+		echo '<br/><a href="users.php">back</a>'; 
 	}else{
 
 	?>
@@ -27,13 +27,13 @@
 			<label>FirstName<label>
 			<input type="text" name="firstname" value="">
 
-<!-- 			<label>Name<label>
-			<input type="text" name="name" value="name?">
+			<label>Name<label>
+			<input type="text" name="name" value="">
 
 			<label>UserName<label>
-			<input type="text" name="username" value="username?"> -->
+			<input type="text" name="username" value="">
 			<br/>
-			<input type="submit" value="Submit">
+			<input type="submit" value="Ajouter un utilisateur">
 
 		</form>
 	<?php

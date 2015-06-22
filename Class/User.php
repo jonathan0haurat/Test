@@ -1,24 +1,33 @@
 <?php
-	include "class/dbConnect.php";
 	class users
 	{
-		private $_firstname = "test1";
-
-		private $_dbCo = null;
+		private $_connect = null;
+		private $_pass = "";
+		private $_user = "root";
+		private $_type = "mysql";
+		private $_path = "127.0.0.1";
+		private $_dbName = "base";
 
 		function __construct()
 		{		
-			$this->_dbCo = new dbConnect();
+			$this->_connect = new PDO($this->_type . ":host=" . $this->_path.";dbname=".$this->_dbName ,$this->_user, $this->_pass);
 		}
 
 		function AddUsers(){
+			try 
+			{
+				$req = $this->_connect->prepare('INSERT INTO users(firstname,name,username) VALUES (:firstname,:name,:username)');
 
-			// $bdd = new PDO('mysql:host=localhost;dbname=base;charset=utf8', 'root', '');
-
-			$req = $this->_dbCo->prepare('INSERT INTO users(firstname) VALUES (:firstname)');
-
-			$req->execute(array(
-				'firstname' => $this->_firstname
-				));
-		}
+				$req->execute(array(
+					'firstname' => $_GET['firstname'],
+					'name' => $_GET['name'],
+					'username' => $_GET['username']
+					));
+				echo "L'utilisateur ".$_GET['firstname']." a bien été ajouté";
+			} 
+				catch (Exception $e) 
+				{
+					echo die('Erreur :'.$e->getMessage());
+				} 
+			}
 	}
