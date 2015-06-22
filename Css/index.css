@@ -1,0 +1,19 @@
+/* define global article style. */
+.article{
+    width:80%;
+    margin:auto;
+    background-color: blueviolet;
+    border-radius: 10px;
+}
+
+/* define article Title. */
+.titleArticle{
+    color:#fff;
+    font-variant: all-small-caps;
+}
+
+/* define content article. */
+.contentArticle{
+    font-variant: normal;
+    min-height: 100px;
+}
