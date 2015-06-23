@@ -23,6 +23,7 @@
 					'name' => $_GET['name'],
 					'username' => $_GET['username']
 					));
+				echo "L'utilisateur ".$_GET['firstname']." a bien été ajouté";
 			} 
 				catch (Exception $e) 
 				{

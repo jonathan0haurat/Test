@@ -1,13 +1,11 @@
 <?php
- // include "../Class/dbConnect.php";
- // include "../Class/User.php";
- include('/Class/User.php');
- // $myCo = new dbConnect();
+ include('/class/User.php');
 ?>
 <!doctype html >
 <html>
 	<head>
 		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="Css/index.css" />
         <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 	</head>
@@ -16,37 +14,36 @@
 	if (!empty($_GET['firstname']) && !empty($_GET['name']) && !empty($_GET['username'])) {
 		$userAdd = new users;
 		$userAdd->AddUsers();
-		echo '<br/><a href="users.php">back</a>'; 
+		echo "<p class=\"text\">L'utilisateur ".$_GET['firstname']." a bien été ajouté</p>";
+		echo '<a href="users.php" class="btn">back</a>'; 
 	}else{
 
 	?>
-		<form action="users.php" method="get">
+		<form action="users.php" method="get" class="basic-grey">
 
-			<legend>Add User</legend>
+			<h1>Ajout d'utilisateur</h1>
 
-			<label>FirstName<label>
+			<label>Prénom<label>
 			<input type="text" name="firstname" value="">
 
-			<label>Name<label>
+			<label>Nom<label>
 			<input type="text" name="name" value="">
 
-			<label>UserName<label>
+			<label>Pseudo<label>
 			<input type="text" name="username" value="">
 			<br/>
-			<input type="submit" value="Ajouter un utilisateur">
+			<input type="submit" class="button" value="Ajouter un utilisateur">
 
 		</form>
-
-		<br/><br/>
-
+		<br/><br/><br/><br/>
 		<form action="/Test/php/suppr.php" method="get">
 
-			<legend>Remove User</legend>
+			<h1>Effacer un utilisateur</h1>
 
-			<label>Quelle FirstName ?<label>
-			<input type="text" name="firstname" value="">
+			<label>Quel utilisateur supprimé ?<label>
+			<input type="text" name="firstname" value="Prénom?">
 
-			<input type="submit" name="suppression" value="X">
+			<input type="submit" class="button" name="suppression" value="X">
 
 		</form>
 	<?php

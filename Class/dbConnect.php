@@ -56,4 +56,8 @@
 
 			return $result->fetchAll();
 		}
+
+		function GetPdo(){
+			return $this->_connect;
+		}
 	}
