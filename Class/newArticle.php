@@ -1,39 +1,33 @@
 <?php
-include "class/dbConnect.php";
-	class newArticle
+
+	class article
 	{
-		public __construct()
-		{
-			$this->_connect = new PDO($this->_type . ":" . $this->_path,$this->_user, this->_pass);
+		private $_connect = null;
+		private $_pass = "";
+		private $_user = "root";
+		private $_type = "mysql";
+		private $_path = "127.0.0.1";
+		private $_dbName = "base";
+
+		function __construct()
+		{		
+			$this->_connect = new PDO($this->_type . ":host=" . $this->_path.";dbname=".$this->_dbName ,$this->_user, $this->_pass);
 		}
-		
-		/* Ajout d'un article */
-		public AddArticle(){
-			$this->_connect->query("Select * FROM `articles`");
-			
-			echo "<form method="post">
-				<p>Titre de l'article:</p>
-				<input type="titre" name="Titre" />
-				<br>
-				<p>Article:</p>
-				<input type="article" name="Article" />
-				<br><br>
-				<input type="submit" value="Validate" />
-			</form>"
-			
-			$Titre=$_POST['Titre'];
-			$Article=$_POST['Article'];
-			$Validate=false;
-			
-			//On ajoute les nouvelles données
-			
-			$req=$pdo->prepare('INSERT INTO articles (Id, Titre, Article, Validate) VALUES (:Id, :Titre, :Article, :Validate)');
-				
-			$req->execute(array(
-				"Id" => null,
-				"Titre" => $Titre,
-				"Article" => $Article,
-				'Validate' => $Validate,
-			));
-		}
+
+		function AddArticle(){
+			try 
+			{
+				$req = $this->_connect->prepare('INSERT INTO articles(Titre, article) VALUES (:Titre, :article)');
+
+				$req->execute(array(
+					'Titre' => $_GET['Titre'],
+					'article' => $_GET['article'],
+					));
+				echo "L'article ".$_GET['Titre']." a bien été ajouté";
+			} 
+				catch (Exception $e) 
+				{
+					echo die('Erreur :'.$e->getMessage());
+				} 
+			}
 	}

@@ -1,4 +1,5 @@
 <?php
+
 	class users
 	{
 		private $_connect = null;
