@@ -14,7 +14,7 @@
 	<?php
 	if (!empty($_GET['titre']) AND !empty($_GET['article'])) {
 		$newArticle = new article;
-		$newArticle->newArticle();
+		$newArticle->AddArticle();
 		echo '<br/><a href="articles.php">back</a>'; 
 	}else{
 

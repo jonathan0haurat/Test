@@ -1,6 +1,6 @@
 <?php
 
-	class newArticle
+	class article
 	{
 		private $_connect = null;
 		private $_pass = "";
