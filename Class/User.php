@@ -36,7 +36,7 @@
 
 		// Method pour supprimer des utilisateurs
 		function RemoveUsers(){
-			$req = $this->_connect->prepare('DELETE FROM users WHERE firstname = ?');
-			$req->execute(array($_GET['firstname']));
+			$req = $this->_connect->prepare('DELETE FROM users WHERE username = ?');
+			$req->execute(array($_GET['username']));
 		}
 	}

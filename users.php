@@ -1,5 +1,7 @@
 <?php
  include('/class/User.php');
+ include "/class/dbConnect.php";
+  $myCo = new dbConnect();
 ?>
 <!doctype html >
 <html>
@@ -18,7 +20,7 @@
 		$userAdd = new users;
 		$userAdd->AddUsers();
 		echo "<p class=\"text\">L'utilisateur ".$_GET['firstname']." a bien été ajouté</p>";
-		echo '<a href="users.php" class="btn">back</a>'; 
+		echo "<a href=\"users.php\" class=\"btn\">back</a>"; 
 	}else{
 
 	?>
@@ -46,11 +48,20 @@
 			<h1>Effacer un utilisateur</h1>
 
 			<label>Quel utilisateur supprimé ?<label>
-			<input type="text" name="firstname" value="Prénom?">
+			<input type="text" name="username" value="Pseudo?">
 
 			<input type="submit" class="button" name="suppression" value="X">
 
 		</form>
+		<div> Liste des utilisateurs par pseudo :  </div>
+		<?php
+			/* Ici je veux afficher mes articles*/
+			foreach($myCo->GetMyUsers() as $user){
+				//afficher article
+                echo "<div>" . $user["UserName"]."</div>";
+			}
+		?>
+		<br/><a href="index.php" class="button">Retour à l'index</a>
 	<?php
 	}	
 	?>

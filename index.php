@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<p><a href="users.php">Gestion d'utilisateur</a></p>
-		<div> Liste des utilisateurs :  </div>
+		<div> Liste des utilisateurs par pseudo :  </div>
 		<?php
 			/* Ici je veux afficher mes articles*/
 			foreach($myCo->GetMyUsers() as $user){
