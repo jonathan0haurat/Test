@@ -1,6 +1,8 @@
 <?php
  include "class/dbConnect.php";
  include "class/newArticle.php";
+ include "class/commande.php";
+ 
  $myCo = new dbConnect();
 ?>
 
@@ -29,6 +31,16 @@
             foreach($myCo->GetMyArticles() as $article){
 				echo "<div>" . $article["Titre"]."</div>"; //afficher article
             }		
+		?>
+		
+		<p><a href="commande.php">Gestion des commandes</a></p>
+		<div> Commande </div>
+		<?php
+			/* Ici je veux afficher mes commandes*/
+			foreach($myCo->Getcommand() as $user){
+				//afficher commande
+                echo "<div>" . $user["commande"]."</div>";
+			}
 		?>
 		
 	</body>
