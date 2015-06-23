@@ -33,7 +33,7 @@
 			<input type="text" name="auteur" value="">
 			-->
 			<br/>
-			<input type="submit" value="validate">
+			<input type="submit" value="Ajouter un article">
 
 		</form>
 
