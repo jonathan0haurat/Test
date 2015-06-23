@@ -28,10 +28,10 @@
 
 			<label>Article<label>
 			<input type="text" name="article" value="">
-			<!--
+
 			<label>Auteur<label>
 			<input type="text" name="auteur" value="">
-			-->
+
 			<br/>
 			<input type="submit" value="Ajouter un article">
 

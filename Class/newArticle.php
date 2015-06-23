@@ -17,11 +17,12 @@
 		function AddArticle(){
 			try 
 			{
-				$req = $this->_connect->prepare('INSERT INTO articles(Titre, article) VALUES (:Titre, :article)');
+				$req = $this->_connect->prepare('INSERT INTO articles(Titre, article, auteur) VALUES (:Titre, :article, :auteur)');
 
 				$req->execute(array(
 					'Titre' => $_GET['Titre'],
 					'article' => $_GET['article'],
+					'auteur' => $_GET['auteur'],
 					));
 				echo "L'article ".$_GET['Titre']." a bien été ajouté";
 			} 
