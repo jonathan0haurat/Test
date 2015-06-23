@@ -13,8 +13,8 @@
 	<body>
 	<?php
 	if (!empty($_GET['titre']) AND !empty($_GET['article'])) {
-		$newArticle = new article;
-		$newArticle->AddArticle();
+		$newArticle = new article; //on lance une nouvelle instance de la classe article
+		$newArticle->AddArticle(); //on appelle la fonction AddArticle de la classe article
 		echo '<br/><a href="articles.php">back</a>'; 
 	}else{
 
@@ -25,7 +25,6 @@
 
 			<label>Titre<label>
 			<input type="text" name="titre" value="">
-
 			<label>Article<label>
 			<input type="text" name="article" value="">
 			<!--
@@ -34,24 +33,7 @@
 			-->
 			<br/>
 			<input type="submit" value="Ajouter un article">
-
 		</form>
-
 		<br/><br/>
-		<!--
-		<form action="/Test/php/suppr.php" method="get">
-
-			<legend>Remove User</legend>
-
-			<label>Quel article ?<label>
-			<input type="text" name="firstname" value="">
-
-			<input type="submit" name="suppression" value="X">
-
-		</form>
-		-->
-	<?php
-	}	
-	?>
 	</body>
 </html>
