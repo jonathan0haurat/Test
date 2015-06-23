@@ -13,25 +13,24 @@
 	</head>
 	<body>
 	<?php
-	if (!empty($_GET['firstname']) && !empty($_GET['name']) && !empty($_GET['username'])) {
+	if (!empty($_GET['username'])) {
 		$userAdd = new users;
 		$userAdd->AddUsers();
 		echo "<p class=\"text\">L'utilisateur ".$_GET['firstname']." a bien été ajouté</p>";
 		echo "<a href=\"users.php\" class=\"btn\">back</a>"; 
 	}else{
 
-	?>
+	?>	
 		<form action="users.php" method="get" class="basic-grey">
 
 			<h1>Ajout d'utilisateur</h1>
-
 			<label>Prénom<label>
 			<input type="text" name="firstname" value="">
 
 			<label>Nom<label>
 			<input type="text" name="name" value="">
 
-			<label>Pseudo<label>
+			<label>Pseudo (obligatoire)<label>
 			<input type="text" name="username" value="">
 			<br/>
 			<input type="submit" class="button" value="Ajouter un utilisateur">
