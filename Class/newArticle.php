@@ -17,9 +17,10 @@
 		function AddArticle(){
 			try 
 			{
-				$req = $this->_connect->prepare('INSERT INTO article(titre,article,validate) VALUES (:titre,:article,:validate)');
+				$req = $this->_connect->prepare('INSERT INTO articles(ID, Titre, article, Validate) VALUES (:ID, :Titre, :article, :Validate)');
 
 				$req->execute(array(
+					'Id' => null,
 					'titre' => $_GET['titre'],
 					'article' => $_GET['article'],
 					'validate' => $_GET['validate']
