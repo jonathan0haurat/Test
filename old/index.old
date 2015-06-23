@@ -13,15 +13,6 @@
 	</head>
 	<body>
 		<p><a href="users.php">Gestion d'utilisateur</a></p>
-		<div> Users </div>
-		<?php
-			/* Ici je veux afficher mes articles*/
-			foreach($myCo->GetMyUsers() as $user){
-				//afficher article
-                echo "<div>" . $user["mail"]."</div>";
-			}
-		?>
-		<p><a href="articles.php">Gestion des articles</a></p>
 		<div> Articles </div>
 		<?php
 			/* Ici je veux afficher mes articles*/
@@ -35,6 +26,14 @@
 			/* Et ici, le lien pour créer un nouvel article */
 			
 		?>
+		<div> Users </div>
 		
+		<?php
+			/* Ici je veux afficher mes articles*/
+			foreach($myCo->GetMyUsers() as $user){
+				//afficher article
+                echo "<div>" . $user["mail"]."</div>";
+			}
+		?>
 	</body>
 </html>
