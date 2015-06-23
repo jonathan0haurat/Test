@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<p><a href="users.php">Gestion d'utilisateur</a></p>
-		<div> Users </div>
+		<div> Liste des utilisateurs :  </div>
 		<?php
 			/* Ici je veux afficher mes articles*/
 			foreach($myCo->GetMyUsers() as $user){
@@ -23,7 +23,7 @@
 			}
 		?>
 		<p><a href="articles.php">Gestion des articles</a></p>
-		<div> Articles </div>
+		<div> Liste des articles </div>
 		<?php
 			/* Ici je veux afficher mes articles*/
             foreach($myCo->GetMyArticles() as $article){
