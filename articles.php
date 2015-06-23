@@ -25,6 +25,7 @@
 
 			<label>Titre<label>
 			<input type="text" name="titre" value="">
+
 			<label>Article<label>
 			<input type="text" name="article" value="">
 			<!--
@@ -33,7 +34,13 @@
 			-->
 			<br/>
 			<input type="submit" value="Ajouter un article">
+
 		</form>
+
 		<br/><br/>
+	
+	<?php
+	}	
+	?>
 	</body>
 </html>
