@@ -25,14 +25,21 @@
 					'username' => $_GET['username']
 					));
 			} 
-				catch (Exception $e) 
-				{
+			catch (Exception $e) 
+			{
 					echo die('Erreur :'.$e->getMessage());
-				} 
-			}
+			} 
+		}
 
 		function RemoveUsers(){
-			$req = $this->_connect->prepare('DELETE FROM users WHERE username = ?');
-			$req->execute(array($_GET['username']));
+			try 
+			{
+				$req = $this->_connect->prepare('DELETE FROM users WHERE username = ?');
+				$req->execute(array($_GET['username']));
+			} 
+			catch (Exception $e) 
+			{
+				echo die('Erreur :'.$e->getMessage());
+			} 
 		}
 	}
