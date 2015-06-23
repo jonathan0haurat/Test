@@ -1,22 +1,21 @@
 <?php
+	 // include('/Test/Class/dbConnect.php');
 	class users
 	{
-		private $_connect = null;
-		private $_pass = "";
-		private $_user = "root";
-		private $_type = "mysql";
-		private $_path = "127.0.0.1";
-		private $_dbName = "base";
+
+		private $_dbCo = null;
 
 		function __construct()
 		{		
-			$this->_connect = new PDO($this->_type . ":host=" . $this->_path.";dbname=".$this->_dbName ,$this->_user, $this->_pass);
+			$this->_dbCo = new dbConnect();
 		}
 
 		function AddUsers(){
 			try 
 			{
-				$req = $this->_connect->prepare('INSERT INTO users(firstname,name,username) VALUES (:firstname,:name,:username)');
+				$req = $this->_dbCo->GetPdo();
+
+				$req->prepare('INSERT INTO users(firstname,name,username) VALUES (:firstname,:name,:username)');
 
 				$req->execute(array(
 					'firstname' => $_GET['firstname'],
@@ -32,7 +31,10 @@
 			}
 
 		function RemoveUsers(){
-			$req = $this->_connect->prepare('DELETE FROM users WHERE firstname = ?');
+			$req = $this->_dbCo->GetPdo();
+
+			$req->prepare('DELETE FROM users WHERE firstname = ?');
+
 			$req->execute(array($_GET['firstname']));
 		}
 	}
