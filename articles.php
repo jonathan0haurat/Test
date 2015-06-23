@@ -12,7 +12,7 @@
 	</head>
 	<body>
 	<?php
-	if (!empty($_GET['titre']) AND !empty($_GET['article'])) {
+	if (!empty($_GET['Titre']) AND !empty($_GET['article'])) {
 		$newArticle = new article; //on lance une nouvelle instance de la classe article
 		$newArticle->AddArticle(); //on appelle la fonction AddArticle de la classe article
 		echo '<br/><a href="articles.php">back</a>'; 
@@ -24,7 +24,7 @@
 			<legend>Ajouter un article</legend>
 
 			<label>Titre<label>
-			<input type="text" name="titre" value="">
+			<input type="text" name="Titre" value="">
 
 			<label>Article<label>
 			<input type="text" name="article" value="">

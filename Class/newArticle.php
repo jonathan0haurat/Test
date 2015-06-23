@@ -20,10 +20,10 @@
 				$req = $this->_connect->prepare('INSERT INTO articles(Titre, article) VALUES (:Titre, :article)');
 
 				$req->execute(array(
-					'titre' => $_GET['titre'],
+					'Titre' => $_GET['Titre'],
 					'article' => $_GET['article'],
 					));
-				echo "L'article ".$_GET['titre']." a bien été ajouté";
+				echo "L'article ".$_GET['Titre']." a bien été ajouté";
 			} 
 				catch (Exception $e) 
 				{
